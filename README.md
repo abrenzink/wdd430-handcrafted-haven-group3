@@ -6,7 +6,7 @@
 
 ### Wire Frames
 - [Desktop](https://wireframe.cc/WWMBBl)
-- [Mobile] (https://wireframe.cc/2A5Gbt)
+- [Mobile](https://wireframe.cc/2A5Gbt)
 - [Typograph](https://fonts.google.com/specimen/Ubuntu)
 - [Color Schema](https://coolors.co/071013-fdfffc-3066be)
 
