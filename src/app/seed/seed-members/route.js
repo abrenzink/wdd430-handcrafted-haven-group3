@@ -39,7 +39,7 @@ async function seedMembers() {
 export async function GET() {
     try {
       await client.sql`BEGIN`;
-      const result = await seedMembers();
+      await seedMembers();
       await client.sql`COMMIT`;
   
       return Response.json({ message: `Members table seeded successfully` });
