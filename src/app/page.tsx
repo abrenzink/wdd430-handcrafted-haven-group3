@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CardWrapper from "./ui/products/cards";
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
           height={464}
           priority
         />
-
+        <CardWrapper/>
         <div className="flex gap-4 items-center flex-col sm:flex-row">
         </div>
       </main>
