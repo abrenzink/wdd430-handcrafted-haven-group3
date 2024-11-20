@@ -1,4 +1,3 @@
-import bcrypt from 'bcrypt';
 import { db } from '@vercel/postgres';
 import { members } from '../../lib/placeholder-data';
 
