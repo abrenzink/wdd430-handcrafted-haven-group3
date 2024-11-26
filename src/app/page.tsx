@@ -1,12 +1,15 @@
 import Image from "next/image";
 import CardWrapper from "./ui/products/cards";
+import NavBar from "./ui/util/header";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen  font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+          <NavBar />
+
         <Image
-          className="sm:hero"
+          className="w-full mt-2"
           src="/hero-mobile.webp"
           alt="Hancrafted Haven Hero"
           width={700}
