@@ -18,5 +18,5 @@
 - [Andrea Brenzink](https://github.com/abrenzink) 
 - [Anthon Brown](https://github.com/anthonb711)
 - [Jan Zander](https://github.com/inoffensiveLama)
-- [Joschua Kleine](https://github.com/j-klein)
+- [Joschua Kleine](https://github.com/j-kleine)
 - [Joseph Nnachi](https://github.com/narches)
