@@ -3,38 +3,44 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import Search from "./search";
 
-  const NavBar = () => {
+interface NavBarProps{
+className? :string;
+}
+
+  const NavBar: React.FC<NavBarProps> = ({className}) => {
     const [isOpen, setIsOpen] = useState(false);
   
   return (
-    <nav className="m-4">
-      <div>
+    <nav  className={`${className} grid grid-cols-[25%,50%,25%] md:grid-cols-[12%,60%,30%] relative `}>
+
         <Link href={"/"}>
-        
-        <Image
-            className=" absolute top-2  left-2 "
+          <Image
+            className="flex justify-start"
             src="/hc-icon.png"
             alt="Hancrafted Haven Icon"
-            width={75}
-            height={75}
+            width={90}
+            height={90}
             priority
-        />
+          />
       </Link>
+    <div className="md:order-3 md:justify-center">
+      <Search srchclassName="flex justify-center " inputPlaceholder="Search Products" />
     </div>
     <button 
-    className=" md:hidden absolute top-2 right-2 text-6xl"
+    className=" flex justify-end md:hidden  top-2 right-2 text-6xl"
       onClick={() => setIsOpen(!isOpen)}
       >
       ☰
     </button>
-    <div
-        className={`${
-          isOpen ? "block" : "hidden"
-        } absolute md:relative top-24 md:top-auto left-0 w-full md:w-auto md:flex bg-white`}
-      >
-      <ul className="flex flex-col md:flex-row md:space-x-6 bg-white text-xl text-right">
-          <li className="border-b border-grey-500 md:border-none p-2">
+<div
+  className={`${
+    isOpen ? "block" : "hidden"
+  } absolute right-0 mr-auto bg-blue-200 top-24 flex-col md:relative md:flex-row md:top-auto md:block `}
+>
+      <ul className="relative justify-end border-4 font-ubuntu md:font-bold md:border-0 flex flex-col md:w-full  md:flex-row md:justify-center md:order-3 md:space-x-6 bg-white text-xl text-right">
+          <li className="border-b border-grey-500   md:border-none p-2">
             <a href="#home">Home</a>
           </li>
           <li className="border-b border-grey-500 md:border-none p-2">
@@ -50,5 +56,4 @@ import React, { useState } from "react";
     </div>
   </nav>
   )}
-
   export default NavBar;
