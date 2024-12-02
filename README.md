@@ -2,7 +2,7 @@
 
 ## Project 
 
-- [Deployment](Soon to Come)
+- [Deployment](https://wdd430-handcrafted-haven-group3.vercel.app/)
 
 ### Wire Frames
 - [Desktop](https://wireframe.cc/WWMBBl)
