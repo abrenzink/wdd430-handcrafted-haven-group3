@@ -5,10 +5,10 @@ import NavBar from '@/app/ui/util/header';
 import SellerCard from '@/app/ui/seller/card';
 import CardWrapper from '@/app/ui/products/cards';
 
-export default async function Page({ params }: { params: { id: string } }) {
-    const resolvedParams = await params;
-    const id = resolvedParams.id;
-
+export default async function Page(props:{ params: Promise<{id: string }>}) {
+ 
+  const resolvedParams = await props.params;
+  const id = resolvedParams.id;
   // Fetch the product data
   const product = await fetchProductById(id);
   let seller = null;
@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     notFound();
   }
 
-  return (
+  return Promise.resolve(
      <div className="border-4 grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-5 font-[family-name:var(--font-geist-sans)]">
     <main className="flex flex-col gap-8 row-start-2 col-end-3 items-center sm:items-start w-full">
       <NavBar className=" min-w-[90vw] items-center "/>
