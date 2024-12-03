@@ -2,7 +2,6 @@ import Image from "next/image";
 import CardWrapper from "./ui/products/cards";
 import NavBar from "./ui/util/header";
 
-
 export default function Home() {
   return (
     <div className="border-4 grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-5 font-[family-name:var(--font-geist-sans)]">
