@@ -26,8 +26,9 @@ export default async function Page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <main>
-      <NavBar />
+     <div className="border-4 grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-5 font-[family-name:var(--font-geist-sans)]">
+    <main className="flex flex-col gap-8 row-start-2 col-end-3 items-center sm:items-start w-full">
+      <NavBar className=" min-w-[90vw] items-center "/>
       <div className="pt-20 md:pt-5">
       <h1 className="text-4xl font-bold">{product.name}</h1>
         <div className="md:flex">
@@ -53,5 +54,6 @@ export default async function Page({ params }: { params: { id: string } }) {
       <h1 className="text-2xl font-bold p-4">Similar Products:</h1>
       <CardWrapper limit={4}/>
     </main>
+    </div>
   );
 }

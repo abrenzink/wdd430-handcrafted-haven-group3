@@ -37,7 +37,7 @@ className? :string;
 <div
   className={`${
     isOpen ? "block" : "hidden"
-  } absolute right-0 mr-auto bg-blue-200 top-24 flex-col md:relative md:flex-row md:top-auto md:block `}
+  } absolute right-0 mr-auto bg-blue-200 top-24 flex-col  md:relative md:flex-row md:top-auto md:block `}
 >
       <ul className="relative justify-end border-4 font-ubuntu md:font-bold md:border-0 flex flex-col md:w-full  md:flex-row md:justify-center md:order-3 md:space-x-6 bg-white text-xl text-right">
           <li className="border-b border-grey-500   md:border-none p-2">
