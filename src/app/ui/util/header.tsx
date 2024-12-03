@@ -13,6 +13,7 @@ className? :string;
     const [isOpen, setIsOpen] = useState(false);
   
   return (
+    <div className=" min-w-[90vw] items-center ">
     <nav  className={`${className} grid grid-cols-[25%,50%,25%] md:grid-cols-[12%,60%,30%] relative `}>
 
         <Link href={"/"}>
@@ -55,5 +56,6 @@ className? :string;
         </ul>
     </div>
   </nav>
+  </div>
   )}
   export default NavBar;

@@ -1,13 +1,13 @@
 import Image from "next/image";
 import CardWrapper from "./ui/products/cards";
 import NavBar from "./ui/util/header";
-import Search from "./ui/util/search";
+
 
 export default function Home() {
   return (
     <div className="border-4 grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-5 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 col-end-3 items-center sm:items-start w-full">
-        <NavBar className=" min-w-[90vw] items-center "/>
+        <NavBar />
 
         <Image
           className="w-full"
