@@ -1,7 +1,6 @@
 import Image from "next/image";
 import CardWrapper from "./ui/products/cards";
 import NavBar from "./ui/util/header";
-import Search from "./ui/util/search";
 
 export default function Home() {
   return (
