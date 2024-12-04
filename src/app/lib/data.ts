@@ -12,7 +12,7 @@ export async function fetchProductsData(limit: number) {
       }
   
       const data = await sql<Product>`SELECT * FROM products LIMIT ${limit}`;
-  
+      await new Promise((resolve) => setTimeout(resolve, 3000));
       return data.rows;
   
     } catch (error) {
@@ -23,7 +23,8 @@ export async function fetchProductsData(limit: number) {
 
 export async function fetchProductById(id: string) {
     try {
-      const { rows } = await sql`SELECT * FROM products WHERE id = ${id}`;
+      const { rows } = await sql<Product>`SELECT * FROM products WHERE id = ${id}`;
+      await new Promise((resolve) => setTimeout(resolve, 3000));
       return rows[0] || null;
     } catch (error) {
       console.error('Error fetching invoice:', error);
@@ -33,7 +34,8 @@ export async function fetchProductById(id: string) {
 
   export async function fetchProductByCategory(category: string, limit: number) {
     try {
-      const { rows } = await sql`SELECT * FROM products WHERE category = ${category} LIMIT ${limit}`;
+      const { rows } = await sql<Product>`SELECT * FROM products WHERE category = ${category} LIMIT ${limit}`;
+      await new Promise((resolve) => setTimeout(resolve, 3000));
       return rows[0] || null;
     } catch (error) {
       console.error('Error fetching invoice:', error);
@@ -45,6 +47,7 @@ export async function fetchProductById(id: string) {
 export async function fetchSellerById(id: string) {
     try {
       const { rows } = await sql<Seller>`SELECT * FROM sellers WHERE id = ${id}`;
+      await new Promise((resolve) => setTimeout(resolve, 3000));
       return rows[0] || null;
     } catch (error) {
       console.error('Error fetching invoice:', error);
