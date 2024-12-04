@@ -7,7 +7,7 @@ import { SellerCardSkeleton } from '@/app/ui/seller/skeletons';
 import { Suspense } from 'react';
 import { fetchProductById } from '@/app/lib/data';
 
-export default async function Page(props: { params: { id: string } }) {
+export default async function Page(props:{ params: Promise<{id: string }>}) {
   const { id } = await props.params;
 
   // Fetch the product data to verify existence
@@ -23,7 +23,6 @@ export default async function Page(props: { params: { id: string } }) {
         <NavBar className=" min-w-[90vw] items-center " />
         <div className="pt-20 md:pt-5">
           <Suspense fallback={<ProductPageCardSkeleton />}>
-            {/* Pass ID instead of preloaded data */}
             <ProductPageCard id={id} />
           </Suspense>
         </div>
