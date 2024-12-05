@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { fetchProductById, fetchSellerById } from '@/app/lib/data';
 import { notFound } from 'next/navigation';
@@ -47,9 +48,11 @@ export default async function Page(props:{ params: Promise<{id: string }>}) {
         </div>
       </div>
       <div className="pt-16">
+      <Link href={`/sellers/${product.seller_id}`}>
       {seller && (
         <SellerCard seller={seller}/>
       )}
+      </Link>
       </div>
       <h1 className="text-2xl font-bold p-4">Similar Products:</h1>
       <CardWrapper limit={4}/>
