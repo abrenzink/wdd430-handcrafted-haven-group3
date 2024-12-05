@@ -5,6 +5,7 @@ import Link from "next/link";
 import React, { useState, Suspense } from "react";
 import Search from "./search";
 
+
 interface NavBarProps{
 className? :string;
 }
@@ -44,16 +45,16 @@ className? :string;
 >
       <ul className="relative justify-end border-4 font-ubuntu md:font-bold md:border-0 flex flex-col md:w-full  md:flex-row md:justify-center md:order-3 md:space-x-6 bg-white text-xl text-right">
           <li className="border-b border-grey-500   md:border-none p-2">
-            <a href="#home">Home</a>
+            <a href="/">Home</a>
           </li>
           <li className="border-b border-grey-500 md:border-none p-2">
-            <a href="#about">About</a>
+            <a href="/about">About</a>
           </li>
           <li className="border-b border-grey-500 md:border-none p-2">
-            <a href="#services">Services</a>
+            <a href="/services">Services</a>
           </li>
           <li className="p-2">
-            <a href="#contact">Contact</a>
+            <a href="/contact">Contact</a>
           </li>
         </ul>
     </div>
