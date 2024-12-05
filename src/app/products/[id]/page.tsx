@@ -1,3 +1,8 @@
+
+import Link from 'next/link';
+import Image from 'next/image';
+import { fetchProductById, fetchSellerById } from '@/app/lib/data';
+
 import { notFound } from 'next/navigation';
 import NavBar from '@/app/ui/util/header';
 import { SellerCard } from '@/app/ui/seller/card';
