@@ -1,6 +1,3 @@
-
-import Link from 'next/link';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import NavBar from '@/app/ui/util/header';
 import { SellerCard } from '@/app/ui/seller/card';
@@ -11,7 +8,8 @@ import { Suspense } from 'react';
 import { fetchProductById } from '@/app/lib/data';
 
 export default async function Page(props:{ params: Promise<{id: string }>}) {
-  const { id } = await props.params;
+ const resolvedParams = await props.params;
+  const id = resolvedParams.id;
 
   // Fetch the product data to verify existence
   const product = await fetchProductById(id);
