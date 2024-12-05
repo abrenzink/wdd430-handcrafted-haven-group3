@@ -13,7 +13,7 @@ export type Seller = {
     price: number;
     image_url: string;
     category: string;
-    seller_id: number;
+    seller_id: string;
     created_at: string;
     updated_at: string;
   };

@@ -1,6 +1,8 @@
 import Image from "next/image";
-import CardWrapper from "./ui/products/cards";
+import { CardWrapper } from "./ui/products/cards";
 import NavBar from "./ui/util/header";
+import { Suspense } from "react";
+import { CardsSkeleton } from "./ui/products/skeletons";
 
 export default function Home() {
   return (
@@ -30,7 +32,10 @@ export default function Home() {
             Explore the stories behind the creations and find something truly special—because every purchase is a celebration of handmade magic. 
           </p>
         </div>
-        <CardWrapper limit={8}/>
+        <Suspense fallback={ <CardsSkeleton/> }>
+          <CardWrapper limit={8}/>
+        </Suspense>
+        
         <div className="flex gap-4 items-center flex-col sm:flex-row">
         </div>
       </main>
