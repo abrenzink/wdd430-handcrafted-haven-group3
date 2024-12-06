@@ -7,10 +7,17 @@ import { SellerCardSkeleton } from '@/app/ui/seller/skeletons';
 import { Suspense } from 'react';
 import { fetchProductById } from '@/app/lib/data';
 
-export default async function Page(props:{ params: Promise<{id: string }>}) {
- const resolvedParams = await props.params;
+export default async function Page(props:{ 
+  params: Promise<{id: string }>,
+  searchParams?: Promise<{
+    query?: string;
+  }>;
+}) {
+  const resolvedParams = await props.params;
   const id = resolvedParams.id;
-
+  const searchParams = await props.searchParams;
+  const query = searchParams?.query || '';
+  
   // Fetch the product data to verify existence
   const product = await fetchProductById(id);
 
@@ -36,7 +43,7 @@ export default async function Page(props:{ params: Promise<{id: string }>}) {
         </div>
         <h1 className="text-2xl font-bold p-4">Similar Products:</h1>
         <Suspense fallback={<CardsSkeleton />}>
-          <CardWrapper limit={8} />
+          <CardWrapper seller_id='' query={query} limit={8}  />
         </Suspense>
       </main>
     </div>

@@ -5,13 +5,59 @@ import {
 } from "./definitions";
 
 
-export async function fetchProductsData(limit: number) {
+export async function fetchProductsData(
+  limit: number,
+  query: string,
+  seller_id?: string,
+) {
     try {
       if (limit <= 0) {
         throw new Error('The limit must be a positive number.');
       }
   
-      const data = await sql<Product>`SELECT * FROM products LIMIT ${limit}`;
+      const data = seller_id
+    ? await sql<Product>`
+        SELECT
+          products.id,
+          products.name,
+          products.description,
+          products.price,
+          products.image_url,
+          products.category,
+          products.created_at,
+          sellers.id AS seller_id,
+          sellers.shop_name
+        FROM products
+        JOIN sellers ON products.seller_id = sellers.id
+        WHERE
+          sellers.id = ${seller_id} AND (
+            products.name ILIKE ${`%${query}%`} OR
+            products.description ILIKE ${`%${query}%`} OR
+            products.category ILIKE ${`%${query}%`} OR
+            sellers.shop_name ILIKE ${`%${query}%`}
+          )
+        LIMIT ${limit};
+      `
+    : await sql<Product>`
+        SELECT
+          products.id,
+          products.name,
+          products.description,
+          products.price,
+          products.image_url,
+          products.category,
+          products.created_at,
+          sellers.id AS seller_id,
+          sellers.shop_name
+        FROM products
+        JOIN sellers ON products.seller_id = sellers.id
+        WHERE
+          products.name ILIKE ${`%${query}%`} OR
+          products.description ILIKE ${`%${query}%`} OR
+          products.category ILIKE ${`%${query}%`} OR
+          sellers.shop_name ILIKE ${`%${query}%`}
+        LIMIT ${limit};
+      `;
       await new Promise((resolve) => setTimeout(resolve, 3000));
       return data.rows;
   
