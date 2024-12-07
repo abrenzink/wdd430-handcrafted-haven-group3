@@ -1,17 +1,21 @@
 // import AcmeLogo from '@/app/ui/acme-logo';
 import LoginForm from '@/app/ui/login-form';
+import { Metadata } from "next";
+import NavBar from "@/app/ui/util/header";
+
+export const metadata: Metadata ={
+  title: 'Services | HandCrafted Haven',
+} 
  
 export default function LoginPage() {
   return (
-    <main className="flex items-center justify-center md:h-screen">
-      <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5 p-4 md:-mt-32">
-        <div className="flex h-20 w-full items-end rounded-lg bg-blue-500 p-3 md:h-36">
-          <div className="w-32 text-white md:w-36">
-            {/* <AcmeLogo /> */}
-          </div>
+    <div className="border-4 grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-5 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-8 row-start-2 col-end-3 items-center sm:items-start w-full">
+        <NavBar />
+        <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5 p-4">
+          <LoginForm />
         </div>
-        <LoginForm />
-      </div>
-    </main>
+      </main>
+    </div>
   );
 }
