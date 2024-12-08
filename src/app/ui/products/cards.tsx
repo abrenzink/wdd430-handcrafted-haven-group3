@@ -3,8 +3,16 @@ import Image from 'next/image';
 import { fetchProductsData, fetchProductById } from '@/app/lib/data';
 
 
-export async function CardWrapper({ limit }: { limit: number }) {
-  const products = await fetchProductsData(limit);
+export async function CardWrapper({ 
+  limit,
+  query,
+  seller_id,
+ }: {
+    limit: number;
+    query: string;
+    seller_id?: string;
+}) {
+  const products = await fetchProductsData(limit, query, seller_id);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">

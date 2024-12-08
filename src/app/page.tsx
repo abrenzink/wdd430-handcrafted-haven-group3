@@ -1,10 +1,24 @@
+import { Metadata } from 'next';
 import Image from "next/image";
 import { CardWrapper } from "./ui/products/cards";
 import NavBar from "./ui/util/header";
 import { Suspense } from "react";
 import { CardsSkeleton } from "./ui/products/skeletons";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: 'Home | Handcrafted Haven',
+}
+
+export default async function Home(props: {
+  searchParams?: Promise<{
+    query?: string;
+    page?: string;
+  }>;
+}) {
+
+  const searchParams = await props.searchParams;
+  const query = searchParams?.query || '';
+
   return (
     <div className="border-4 grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-5 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 col-end-3 items-center sm:items-start w-full">
@@ -32,8 +46,8 @@ export default function Home() {
             Explore the stories behind the creations and find something truly special—because every purchase is a celebration of handmade magic. 
           </p>
         </div>
-        <Suspense fallback={ <CardsSkeleton/> }>
-          <CardWrapper limit={8}/>
+        <Suspense key={query} fallback={ <CardsSkeleton/> }>
+          <CardWrapper query={query} limit={8}/>
         </Suspense>
         
         <div className="flex gap-4 items-center flex-col sm:flex-row">
