@@ -1,3 +1,12 @@
+import { User as NextAuthUser } from 'next-auth';
+
+export interface User extends NextAuthUser {
+  id: string;
+  email: string;
+  name?: string;
+  password: string;
+}
+
 export type Seller = {
     id: number;
     shop_name: string;
@@ -23,7 +32,7 @@ export type Seller = {
     name: string;
     email: string;
     password: string;
-    role: 'seller' | 'buyer';
+    role: 'seller' | 'buyer' | 'admin';
     created_at: string;
     updated_at: string;
   };
