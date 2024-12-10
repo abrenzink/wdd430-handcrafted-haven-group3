@@ -38,23 +38,11 @@ export function ProductCard({
   };
 }) {
 
-  //Delete these once the db has been updated
-  const createImageSrc = (id: string, name: string) => {
-    const slug = name.toLowerCase().replace(/\s+/g, '_'); // Convert name to lowercase and replace spaces with underscores
-    return `${id}_${slug}.webp`; // Combine id and slug with the desired format
-  };
-
-  const imageSrc = createImageSrc(product.id.toString(), product.name);
-  //delete to this line
 
   return (
     <div className="rounded-xl bg-gray-50 p-4 shadow-sm">
       <Image
-      //I used this image as a place holder to see the layout. 
-      //DELETE LINE 36 and UNCOMMENT 37
-        // src={"/ceramicMug.jpg"}
-        //src={product.image_url}
-        src={`/products/${imageSrc}`}
+        src={`/products/${product.image_url}`}
         alt={product.name}
         width={500}
         height={300}
@@ -76,22 +64,13 @@ export async function ProductPageCard({ id }: { id: string }) {
     return null; // or show an error message
   }
 
-  //Delete these lines once database has been updated
-  const createImageSrc = (id: string, name: string) => {
-    const slug = name.toLowerCase().replace(/\s+/g, '_'); // Convert name to lowercase and replace spaces with underscores
-    return `${id}_${slug}.webp`; // Combine id and slug with the desired format
-  };
-
-  const imageSrc = createImageSrc(product.id.toString(), product.name);
-  //Delete up to this line
 
   return (
     <div>
       <h1 className="text-4xl font-bold">{product.name}</h1>
       <div className="md:flex">
         <Image
-          //src={product.image_url}
-          src={`/products/${imageSrc}`}
+          src={`/products/${product.image_url}`}
           alt={product.name}
           width={500}
           height={300}
