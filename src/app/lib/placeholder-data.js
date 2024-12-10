@@ -305,18 +305,18 @@ const members = [
 ];
 
 const reviews = [
-  { id: 1, product_id: 1, member_id: 1, rating: 5, comment: 'Absolutely love these handmade ceramics! The details are stunning.' },
-  { id: 2, product_id: 2, member_id: 2, rating: 4, comment: 'Great custom furniture, but a bit on the expensive side.' },
-  { id: 3, product_id: 3, member_id: 3, rating: 5, comment: 'Beautiful scarves! Perfect for the winter season.' },
-  { id: 4, product_id: 4, member_id: 4, rating: 3, comment: 'Sculpture is nice, but the finish could be improved.' },
-  { id: 5, product_id: 5, member_id: 5, rating: 5, comment: 'Eco-friendly and stylish jewelry, love it!' },
-  { id: 6, product_id: 6, member_id: 6, rating: 5, comment: 'Amazing craftsmanship on the leather bags. Very durable!' },
-  { id: 7, product_id: 7, member_id: 7, rating: 4, comment: 'The painting is good, but I expected more vibrant colors.' },
-  { id: 8, product_id: 8, member_id: 8, rating: 5, comment: 'The candles smell amazing! So relaxing.' },
-  { id: 9, product_id: 9, member_id: 9, rating: 4, comment: 'The felt creations are cute, but a little pricey for the size.' },
-  { id: 10, product_id: 10, member_id: 10, rating: 5, comment: 'Rustic and unique home decor pieces that really stand out.' },
-  { id: 11, product_id: 1, member_id: 11, rating: 5, comment: 'The pottery is beautiful and the craftsmanship is top notch. Highly recommend!' },
-  { id: 12, product_id: 2, member_id: 12, rating: 5, comment: 'Love the custom furniture! It fits perfectly in my living room.' }
+  { id: 1, product_id: 1, reviewer_name: 'Alice Johnson', rating: 5, comment: 'Absolutely love these handmade ceramics! The details are stunning.' },
+  { id: 2, product_id: 2, reviewer_name: 'Bob Smith', rating: 4, comment: 'Great custom furniture, but a bit on the expensive side.' },
+  { id: 3, product_id: 3, reviewer_name: 'Clara Davis', rating: 5, comment: 'Beautiful scarves! Perfect for the winter season.' },
+  { id: 4, product_id: 4, reviewer_name: 'David Lee', rating: 3, comment: 'Sculpture is nice, but the finish could be improved.' },
+  { id: 5, product_id: 5, reviewer_name: 'Frank Miller', rating: 5, comment: 'Eco-friendly and stylish jewelry, love it!' },
+  { id: 6, product_id: 6, reviewer_name: 'Alice Johnson', rating: 5, comment: 'Amazing craftsmanship on the leather bags. Very durable!' },
+  { id: 7, product_id: 7, reviewer_name: 'Olivia Brown', rating: 4, comment: 'The painting is good, but I expected more vibrant colors.' },
+  { id: 8, product_id: 8, reviewer_name: 'Jack Black', rating: 5, comment: 'The candles smell amazing! So relaxing.' },
+  { id: 9, product_id: 9, reviewer_name: 'Alice Johnson', rating: 4, comment: 'The felt creations are cute, but a little pricey for the size.' },
+  { id: 10, product_id: 10, reviewer_name: 'Alice Johnson', rating: 5, comment: 'Rustic and unique home decor pieces that really stand out.' },
+  { id: 11, product_id: 1, reviewer_name: 'Liam Harris', rating: 5, comment: 'The pottery is beautiful and the craftsmanship is top notch. Highly recommend!' },
+  { id: 12, product_id: 2, reviewer_name: 'Grace White', rating: 5, comment: 'Love the custom furniture! It fits perfectly in my living room.' }
 ];
 
 
