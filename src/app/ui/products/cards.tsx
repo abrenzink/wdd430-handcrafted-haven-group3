@@ -42,8 +42,8 @@ export function ProductCard({
       <Image
       //I used this image as a place holder to see the layout. 
       //DELETE LINE 36 and UNCOMMENT 37
-        src={"/ceramicMug.jpg"}
-        // src={"product.image_url"}
+        // src={"/ceramicMug.jpg"}
+        src={product.image_url}
         alt={product.name}
         width={500}
         height={300}
