@@ -9,8 +9,7 @@ async function seedReviews() {
       id SERIAL PRIMARY KEY,
       product_id INTEGER NOT NULL,
       FOREIGN KEY (product_id) REFERENCES products(id),
-      member_id INTEGER NOT NULL,
-      FOREIGN KEY (member_id) REFERENCES members(id),
+      reviewer_name VARCHAR(255) NOT NULL,
       rating INTEGER,
       comment TEXT,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -21,19 +20,19 @@ async function seedReviews() {
 
   const insertedReviews = await Promise.all(
     reviews.map(async (review) => {
-      // Check if seller_id exists on table 'sellers'
-      const member = await client.sql`
-        SELECT id FROM members WHERE id = ${review.member_id};
-      `;
+      // // Check if seller_id exists on table 'sellers'
+      // const member = await client.sql`
+      //   SELECT id FROM members WHERE id = ${review.member_id};
+      // `;
 
       const product = await client.sql`
-      SELECT id FROM products WHERE id = ${review.product_id};
-    `;
+        SELECT id FROM products WHERE id = ${review.product_id};
+      `;
 
-      if (member.rowCount > 0 && product.rowCount > 0) {
+      if (product.rowCount > 0) {
         return client.sql`
-          INSERT INTO reviews (id, product_id, member_id, rating, comment)
-          VALUES (${review.id}, ${review.product_id}, ${review.member_id}, ${review.rating}, ${review.comment})
+          INSERT INTO reviews (id, product_id, reviewer_name, rating, comment)
+          VALUES (${review.id}, ${review.product_id}, ${review.reviewer_name}, ${review.rating}, ${review.comment})
           ON CONFLICT (id) DO NOTHING;
         `;
       }
