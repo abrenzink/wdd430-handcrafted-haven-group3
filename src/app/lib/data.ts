@@ -71,6 +71,17 @@ export async function fetchProductsData(
     }
   }
 
+  export async function fetchReviewsData(limit: number, product_id: string) {
+    try {
+      const data = await sql<Review>`SELECT * FROM reviews WHERE product_id = ${product_id} LIMIT ${limit}`;
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+      return data.rows || null;
+    } catch (error) {
+      console.error('Error fetching reviews:', error);
+      return null;
+    }
+  }
+
 export async function fetchProductById(id: string) {
     try {
       const { rows } = await sql<Product>`SELECT * FROM products WHERE id = ${id}`;
