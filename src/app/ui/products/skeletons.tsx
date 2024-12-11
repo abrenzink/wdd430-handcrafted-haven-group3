@@ -38,25 +38,25 @@ export function CardsSkeleton({ limit = 8 }: { limit?: number }) {
 
 
 export function ProductPageCardSkeleton() {
-    return (
-      <div className="animate-pulse">
-        {/* Skeleton for the title */}
-        <div className="h-8 w-3/4 bg-gray-200 rounded-md mb-4"></div>
+  return (
+    <div className="w-full">
+      {/* Skeleton for the title */}
+      <div className="h-4 w-3/4 bg-gray-200 rounded-md mb-6"></div>
+      
+      {/* Skeleton for the card layout */}
+      <div className="md:flex gap-4">
+        {/* Skeleton for the image */}
+        <div className="h-[600px] w-full md:w-1/2 bg-gray-200 rounded-md animate-pulse"></div>
         
-        {/* Skeleton for the card layout */}
-        <div className="md:flex">
-          {/* Skeleton for the image */}
-          <div className="h-40 w-full bg-gray-200 rounded-md mb-4"></div>
-          
-          {/* Skeleton for the text content */}
-          <div className="ml-4 flex flex-col gap-2">
-            <div className="h-4 w-5/6 bg-gray-200 rounded-md"></div>
-            <div className="h-4 w-3/4 bg-gray-200 rounded-md"></div>
-            <div className="h-4 w-1/2 bg-gray-200 rounded-md"></div>
-            <div className="h-4 w-1/3 bg-gray-200 rounded-md"></div>
-          </div>
+        {/* Skeleton for the text content */}
+        <div className="flex flex-col gap-4 w-full md:w-1/2 p-4">
+          <div className="h-4 w-5/6 bg-gray-200 rounded-md"></div>
+          <div className="h-4 w-4/6 bg-gray-200 rounded-md"></div>
+          <div className="h-4 w-3/6 bg-gray-200 rounded-md"></div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
+
   

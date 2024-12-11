@@ -40,7 +40,7 @@ export type Seller = {
   export type Review = {
     id: number;
     product_id: number;
-    member_id: number;
+    reviewer_name: string;
     rating: number;
     comment: string;
   };
