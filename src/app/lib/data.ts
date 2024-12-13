@@ -2,6 +2,7 @@ import { sql } from '@vercel/postgres';
 import {
     Product,
     Seller,
+    Review,
 } from "./definitions";
 
 
@@ -64,6 +65,17 @@ export async function fetchProductsData(
     } catch (error) {
       console.error('Database Error:', error);
       throw new Error('Failed to fetch product data.');
+    }
+  }
+
+  export async function fetchReviewsData(limit: number, product_id: string) {
+    try {
+      const data = await sql<Review>`SELECT * FROM reviews WHERE product_id = ${product_id} LIMIT ${limit}`;
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+      return data.rows || null;
+    } catch (error) {
+      console.error('Error fetching reviews:', error);
+      return null;
     }
   }
 

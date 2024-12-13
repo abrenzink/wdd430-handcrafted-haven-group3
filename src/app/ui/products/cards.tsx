@@ -64,20 +64,19 @@ export async function ProductPageCard({ id }: { id: string }) {
     return null; // or show an error message
   }
 
-
   return (
-    <div>
+    <div className="w-full">
       <h1 className="text-4xl font-bold">{product.name}</h1>
       <div className="md:flex">
         <Image
           src={`/products/${product.image_url}`}
           alt={product.name}
-          width={500}
-          height={300}
-          className="h-40 w-full object-cover rounded-md mb-4"
+          width={1000}
+          height={600}
+          className="h-full w-full object-cover rounded-md mb-4"
         />
-        <div>
-          <p className="text-sm text-gray-700">{product.description}</p>
+        <div className="p-4 pt-24">
+          <p className="text-xl text-gray-700">{product.description}</p>
           <p className="mt-2 font-semibold">${product.price}</p>
           <p className="mt-1 text-xs text-gray-500">Category: {product.category}</p>
         </div>
@@ -85,3 +84,6 @@ export async function ProductPageCard({ id }: { id: string }) {
     </div>
   );
 }
+
+
+
