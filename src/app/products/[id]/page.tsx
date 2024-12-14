@@ -6,6 +6,7 @@ import { CardsSkeleton, ProductPageCardSkeleton } from '@/app/ui/products/skelet
 import { SellerCardSkeleton } from '@/app/ui/seller/skeletons';
 import { Suspense } from 'react';
 import { fetchProductById } from '@/app/lib/data';
+import { ReviewWrapper } from '@/app/ui/products/review';
 
 export default async function Page(props:{ 
   params: Promise<{id: string }>,
@@ -33,6 +34,7 @@ export default async function Page(props:{
           <Suspense fallback={<ProductPageCardSkeleton />}>
             <ProductPageCard id={id} />
           </Suspense>
+
         </div>
         <div className="pt-16">
           {product.seller_id && (
@@ -40,6 +42,9 @@ export default async function Page(props:{
               <SellerCard sellerId={product.seller_id} />
             </Suspense>
           )}
+          <Suspense>
+            <ReviewWrapper product_id={id} limit={10} />
+          </Suspense>
         </div>
         <h1 className="text-2xl font-bold p-4">Similar Products:</h1>
         <Suspense fallback={<CardsSkeleton />}>
