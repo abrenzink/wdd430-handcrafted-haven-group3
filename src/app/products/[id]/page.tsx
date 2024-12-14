@@ -43,7 +43,7 @@ export default async function Page(props:{
               <SellerCard sellerId={product.seller_id} />
             </Suspense>
           )}
-          <Suspense>
+          <Suspense fallback={<ReviewsCardWrapperSkeleton />}>
             <ReviewWrapper product_id={id} limit={10} />
           </Suspense>
         </div>
