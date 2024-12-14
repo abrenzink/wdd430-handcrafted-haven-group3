@@ -6,7 +6,8 @@ import { CardsSkeleton, ProductPageCardSkeleton } from '@/app/ui/products/skelet
 import { SellerCardSkeleton } from '@/app/ui/seller/skeletons';
 import { Suspense } from 'react';
 import { fetchProductById } from '@/app/lib/data';
-import { ReviewWrapper } from '@/app/ui/products/review';
+import { ReviewWrapper, ReviewsCardWrapperSkeleton } from '@/app/ui/products/review';
+
 
 export default async function Page(props:{ 
   params: Promise<{id: string }>,
