@@ -27,3 +27,26 @@ export async function ReviewWrapper({ product_id, limit,}: {product_id: string; 
     </div>
   )
 }
+
+export function ReviewsCardWrapperSkeleton() {
+    return (
+      <div className="w-1/2">
+        <div className="animate-pulse">
+          {[...Array(4)].map((_, index) => (
+            <div
+              key={index}
+              className="flex flex-col gap-3 p-4 m-4 bg-gray-200 rounded-xl shadow-sm"
+            >
+              {/* Skeleton for reviewer name */}
+              <div className="h-2 w-1/3 bg-gray-300 rounded"></div>
+              {/* Skeleton for review comment */}
+              <div className="h-2 w-full bg-gray-300 rounded"></div>
+              <div className="h-2 w-5/6 bg-gray-300 rounded"></div>
+              {/* Skeleton for rating */}
+              <div className="h-2 w-1/4 bg-gray-300 rounded mt-2"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
