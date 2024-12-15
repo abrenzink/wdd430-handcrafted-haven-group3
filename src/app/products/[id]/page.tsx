@@ -8,7 +8,6 @@ import { Suspense } from 'react';
 import { fetchProductById } from '@/app/lib/data';
 import { ReviewWrapper, ReviewsCardWrapperSkeleton } from '@/app/ui/products/review';
 
-
 export default async function Page(props:{ 
   params: Promise<{id: string }>,
   searchParams?: Promise<{
@@ -45,6 +44,12 @@ export default async function Page(props:{
           )}
           <Suspense fallback={<ReviewsCardWrapperSkeleton />}>
             <ReviewWrapper product_id={id} limit={10} />
+          </Suspense>
+        </div>
+        <div className="w-full">
+          <h1 className="text-2xl font-bold p-4">Reviews: </h1>
+          <Suspense fallback={<ReviewsCardWrapperSkeleton />}>
+            <ReviewsCardWrapper product_id={id} limit={4}/>
           </Suspense>
         </div>
         <h1 className="text-2xl font-bold p-4">Similar Products:</h1>
