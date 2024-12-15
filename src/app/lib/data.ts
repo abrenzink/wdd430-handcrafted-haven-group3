@@ -1,9 +1,12 @@
 import { sql } from '@vercel/postgres';
+import { db } from '@vercel/postgres';
 import {
     Product,
     Seller,
     Review,
 } from "./definitions";
+
+
 
 
 export async function fetchProductsData(
@@ -113,7 +116,60 @@ export async function fetchSellerById(id: string) {
     }
 }
 
+export async function fetchReviewsById(product_id: string, limit: number) {
+  try {
+    const { rows } = await sql<Review>`SELECT * FROM reviews WHERE id = ${product_id} LIMIT ${limit}`;
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    return rows || null;
+  }catch (error) {
+  console.error('Error fetching product reviews', error);
+  return null;
+  }
+}
+
+export async function fetchReviewIdIndex() {
+  try {
+    const { rows } = await sql<Review>`SELECT id FROM reviews ORDER BY id DESC LIMIT 1`;
+    return rows || null;
+  }catch (error) {
+  console.error('Error fetching product reviews id index', error);
+  return null;
+  }
+}
+
+export async function addReview(reviewData: { 
+  product_id: string,
+  reviewer_name: string,
+  rating: number,
+  comment: string 
+}) {
+
+  const client = await db.connect();
+    try {
+    // Insert query
+    const { rows } = await client.sql`
+      INSERT INTO reviews (product_id, reviewer_name, rating, comment)
+      VALUES (${reviewData.product_id}, ${reviewData.reviewer_name}, ${reviewData.rating}, ${reviewData.comment})
+      RETURNING id;`;  // This will return the inserted review's id
+
+    return rows ? rows[0].id : null;  // Return the id of the inserted review or null if nothing is inserted
+  } catch (error) {
+    console.error('Error inserting review', error);
+    throw new Error('Undable to insert review');
+    //return null; // Return null if there was an error
+  }
+}
+
 /*
+
+
+  export type Review = {
+    id: number;
+    product_id: number;
+    reviewer_name: string;
+    rating: number;
+    comment: string;
+  };
 export async function fetchLatestInvoices() {
   try {
     const data = await sql<LatestInvoiceRaw>`
