@@ -46,12 +46,6 @@ export default async function Page(props:{
             <ReviewWrapper product_id={id} limit={10} />
           </Suspense>
         </div>
-        <div className="w-full">
-          <h1 className="text-2xl font-bold p-4">Reviews: </h1>
-          <Suspense fallback={<ReviewsCardWrapperSkeleton />}>
-            <ReviewsCardWrapper product_id={id} limit={4}/>
-          </Suspense>
-        </div>
         <h1 className="text-2xl font-bold p-4">Similar Products:</h1>
         <Suspense fallback={<CardsSkeleton />}>
           <CardWrapper seller_id='' query={query} limit={8}  />
