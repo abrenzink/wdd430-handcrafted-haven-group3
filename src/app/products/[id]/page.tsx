@@ -7,6 +7,7 @@ import { SellerCardSkeleton } from '@/app/ui/seller/skeletons';
 import { Suspense } from 'react';
 import { fetchProductById } from '@/app/lib/data';
 import { ReviewWrapper, ReviewsCardWrapperSkeleton } from '@/app/ui/products/review';
+import Link from 'next/link';
 
 export default async function Page(props:{ 
   params: Promise<{id: string }>,
@@ -36,10 +37,12 @@ export default async function Page(props:{
           </Suspense>
 
         </div>
-        <div className="pt-16">
+        <div>
           {product.seller_id && (
             <Suspense fallback={<SellerCardSkeleton />}>
-              <SellerCard sellerId={product.seller_id} />
+              <Link key={product.seller_id} href={`/sellers/${product.seller_id}`}>
+                <SellerCard sellerId={product.seller_id} />
+              </Link>
             </Suspense>
           )}
           <Suspense fallback={<ReviewsCardWrapperSkeleton />}>
