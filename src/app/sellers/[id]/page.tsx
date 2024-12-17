@@ -1,7 +1,7 @@
 import { fetchSellerById } from '@/app/lib/data';
 import { notFound } from 'next/navigation';
 import NavBar from '@/app/ui/util/header';
-import { SellerCard, SellerPageCard } from '@/app/ui/seller/card';
+import { SellerPageCard } from '@/app/ui/seller/card';
 import { CardWrapper } from '@/app/ui/products/cards';
 
 export default async function Page(props:{
