@@ -14,8 +14,14 @@ export async function ReviewWrapper({ product_id, limit,}: {product_id: string; 
 
   if (reviews.length === 0) {
     return (
-     <p className="text-lg font-bold p-4">Be the first one to leave a Review!</p>
-      ); // or show an error message
+      <div className="bg-gray-100 p-4 lg:p-8">
+        <div className="gap-6 grid grid-cols-1 lg:grid-cols-4 mx-auto w-full max-w-7xl">
+          <span className="text-lg font-bold p-12">Be the first to leave a Review!</span>
+          <ReviewComment id={Number(product_id)}/>  
+        </div>
+     </div>
+    ); // or show an error message
+     
   }
 
   return(
