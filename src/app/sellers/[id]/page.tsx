@@ -1,7 +1,7 @@
 import { fetchSellerById } from '@/app/lib/data';
 import { notFound } from 'next/navigation';
 import NavBar from '@/app/ui/util/header';
-import { SellerCard } from '@/app/ui/seller/card';
+import { SellerCard, SellerPageCard } from '@/app/ui/seller/card';
 import { CardWrapper } from '@/app/ui/products/cards';
 
 export default async function Page(props:{
@@ -39,7 +39,7 @@ export default async function Page(props:{
       <NavBar />
       <div className="pt-16">
       {seller && (
-        <SellerCard sellerId={id}/>
+        <SellerPageCard sellerId={id}/>
       )}
       </div>
       <h1 className="text-2xl font-bold p-4">Products:</h1>
