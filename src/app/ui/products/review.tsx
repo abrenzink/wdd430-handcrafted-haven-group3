@@ -22,7 +22,7 @@ export async function ReviewWrapper({ product_id, limit,}: {product_id: string; 
     <div className="bg-gray-100 p-4 lg:p-8">
       <div className="gap-6 grid grid-cols-1 lg:grid-cols-4 mx-auto w-full max-w-7xl">
         <ReviewSlider data={reviews} />
-        <ReviewComment id={product_id}/>
+        <ReviewComment id={Number(product_id)}/>
       </div>
     </div>
   )

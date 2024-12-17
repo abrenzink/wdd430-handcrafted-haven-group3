@@ -24,7 +24,7 @@ const ReviewSlider: React.FC<SliderProps> = ({ data }) => {
   <div className="lg:col-span-2 bg-white shadow p-6 rounded-lg">
     <h2 className="mb-4 font-bold text-2xl text-center lg:text-left">Product Reviews</h2>
     <Swiper
-      slidesPerView={2}
+      slidesPerView={4}
       spaceBetween={10}
       pagination={{ clickable: true }}
       navigation={true}
@@ -32,9 +32,9 @@ const ReviewSlider: React.FC<SliderProps> = ({ data }) => {
       modules={[Pagination, Navigation, Autoplay]}
       breakpoints={{
       640: { slidesPerView: 2 },
-        1024: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
       }}
-      className="mySwiper"
+      className="mySwiper flex-grow"
     >
       {data.map((review) => (
         <SwiperSlide key={review.id}>

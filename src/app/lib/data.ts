@@ -1,13 +1,9 @@
 import { sql } from '@vercel/postgres';
-import { db } from '@vercel/postgres';
 import {
     Product,
     Seller,
     Review,
 } from "./definitions";
-
-
-
 
 export async function fetchProductsData(
   limit: number,
@@ -71,7 +67,7 @@ export async function fetchProductsData(
     }
   }
 
-  export async function fetchReviewsData(limit: number, product_id: string) {
+  export async function fetchReviewsData(product_id: number, limit: number) {
     try {
       const data = await sql<Review>`SELECT * FROM reviews WHERE product_id = ${product_id} LIMIT ${limit}`;
       //await new Promise((resolve) => setTimeout(resolve, 3000));
@@ -118,9 +114,9 @@ export async function fetchSellerById(id: string) {
 
 export async function fetchReviewsById(product_id: string, limit: number) {
   try {
-    const { rows } = await sql<Review>`SELECT * FROM reviews WHERE id = ${product_id} LIMIT ${limit}`;
+    const  {rows} = await sql`SELECT * FROM reviews WHERE product_id = ${product_id} LIMIT ${limit}`;
     //await new Promise((resolve) => setTimeout(resolve, 3000));
-    return rows || null;
+    return rows as Review[] || null;
   }catch (error) {
   console.error('Error fetching product reviews', error);
   return null;
@@ -137,28 +133,7 @@ export async function fetchReviewIdIndex() {
   }
 }
 
-export async function addReview(reviewData: { 
-  product_id: string,
-  reviewer_name: string,
-  rating: number,
-  comment: string 
-}) {
 
-  const client = await db.connect();
-    try {
-    // Insert query
-    const { rows } = await client.sql`
-      INSERT INTO reviews (product_id, reviewer_name, rating, comment)
-      VALUES (${reviewData.product_id}, ${reviewData.reviewer_name}, ${reviewData.rating}, ${reviewData.comment})
-      RETURNING id;`;  // This will return the inserted review's id
-
-    return rows ? rows[0].id : null;  // Return the id of the inserted review or null if nothing is inserted
-  } catch (error) {
-    console.error('Error inserting review', error);
-    throw new Error('Undable to insert review');
-    //return null; // Return null if there was an error
-  }
-}
 
 /*
 

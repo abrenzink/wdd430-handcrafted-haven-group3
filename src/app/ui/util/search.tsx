@@ -13,8 +13,6 @@ inputPlaceholder: string
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
-
-  console.log(srchclassName)
   
   const handleSearch = useDebouncedCallback((term) => {
     console.log(`Searching... ${term}`);
