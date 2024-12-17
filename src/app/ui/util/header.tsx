@@ -49,9 +49,9 @@ className? :string;
             <li className="border-b border-grey-500 md:border-none p-2">
               <Link href="/about">About</Link>
             </li>
-            <li className="border-b border-grey-500 md:border-none p-2">
+            {/* <li className="border-b border-grey-500 md:border-none p-2">
               <Link href="/services">Services </Link>
-            </li>
+            </li> */}
             <li className="p-2">
               <Link href="/contact">Contact</Link>
             </li>
